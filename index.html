@@ -3,32 +3,29 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Big Diddy Burger — (sin JavaScript)</title>
+  <title>Big Diddy Burger</title>
   <meta name="description" content="Big Diddy Burger — hamburguesas artesanales, rápidas y sabrosas." />
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<header class="site-header">
-  <div class="brand">
-    <!-- logo: usa una img en lugar del SVG -->
-    <img src="images/logo.png" alt="Big Diddy Burger" class="logo-img">
-
-    <div>
-      <h1 class="site-title">Big Diddy Burger</h1>
-      <div class="site-tag">Hamburguesas artesanales & papas crujientes</div>
+  <header class="site-header">
+    <div class="brand">
+      <!-- logo -->
+      <img src="images/logo.png" alt="Big Diddy Burger logo" class="logo-img">
+      <div>
+        <h1 class="site-title">Big Diddy Burger</h1>
+        <div class="site-tag">Hamburguesas artesanales & papas crujientes</div>
+      </div>
     </div>
-  </div>
 
-  <nav class="main-nav" aria-label="Principal">
-    <a href="#menu">Menú</a>
-    <a href="#about">Nosotros</a>
-    <a href="#contact">Contacto</a>
-    <a class="cta" href="#order">Ordenar</a>
-    <button class="mobile-toggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
-  </nav>
-</header>
-
-
+    <nav class="main-nav" aria-label="Principal">
+      <a href="#menu">Menú</a>
+      <a href="#about">Nosotros</a>
+      <a href="#contact">Contacto</a>
+      <a class="cta" href="#order">Ordenar</a>
+      <button class="mobile-toggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
+    </nav>
+  </header>
 
   <main class="container">
     <section class="hero">
@@ -49,8 +46,6 @@
     <section id="menu" class="menu-section">
       <header class="menu-header">
         <h2>Menú destacado</h2>
-
-        <!-- Filtros CSS-only -->
         <div class="filters" role="search" aria-label="Filtros del menú">
           <div class="filter-group">
             <label for="f-all" class="filter-label">
@@ -73,43 +68,37 @@
         </div>
       </header>
 
-      <!-- GRID con clases por categoría -->
       <div id="menuGrid" class="menu-grid" aria-live="polite">
-        <!-- Tarjeta: Big Diddy (clásica) -->
+        <!-- Tarjetas de productos -->
         <article class="card item clasica">
-          <img src="images/bigdiddy.jpg" alt="Big Diddy Burger">
+          <h5>Big Diddy Burger</h5>
           <h4>Big Diddy</h4>
-          <p class="muted">Carne doble, queso cheddar, bacon crujiente y salsa especial.</p>
+          <p>Carne doble, queso cheddar, bacon crujiente y salsa especial.</p>
           <div class="card-foot">
             <strong>$9.99</strong>
             <a href="#order" class="btn-order">Pedir</a>
           </div>
         </article>
 
-        <!-- Tarjeta: Veggie Delight (veggie) -->
         <article class="card item veggie">
-          <img src="images/veggie.jpg" alt="Veggie Delight">
+          <h5>Veggie Delight</h5>
           <h4>Veggie Delight</h4>
-          <p class="muted">Hamburguesa vegetal, lechuga, tomate y alioli de ajo.</p>
+          <p>Hamburguesa vegetal, lechuga, tomate y alioli de ajo.</p>
           <div class="card-foot">
             <strong>$8.50</strong>
             <a href="#order" class="btn-order">Pedir</a>
           </div>
         </article>
 
-        <!-- Tarjeta: Papas Diddy (acompañamiento) -->
         <article class="card item acompanamiento">
-          <img src="images/papas.jpg" alt="Papas Diddy">
+          <h5>Papas Diddy</h5>
           <h4>Papas Diddy</h4>
-          <p class="muted">Papas rústicas sazonadas con nuestra mezcla especial.</p>
+          <p>Papas rústicas sazonadas con nuestra mezcla especial.</p>
           <div class="card-foot">
             <strong>$3.99</strong>
             <a href="#order" class="btn-order">Pedir</a>
           </div>
         </article>
-
-        <!-- Añade más artículos repitiendo la estructura y asignando la clase correcta
-             (clasica / veggie / acompanamiento). -->
       </div>
     </section>
 
@@ -120,9 +109,6 @@
 
     <section id="contact">
       <h2>Contacto</h2>
-      <!-- Form HTML simple: al no usar JS, el formulario puede enviar por POST a tu servidor
-           o usar "mailto:" si quieres algo muy simple, pero lo ideal es tener un endpoint.
-      -->
       <form id="contactForm" class="contact-form" method="post" action="/contact-submit">
         <label>Nombre
           <input name="name" required>
