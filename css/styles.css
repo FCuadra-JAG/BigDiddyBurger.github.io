@@ -20,11 +20,40 @@ body{margin:0;background:linear-gradient(180deg,#fff8f0 0%, #ffeede 100%);color:
 .info{padding:1rem;border-radius:var(--radius);background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,0.06)}
 .menu-header{display:flex;justify-content:space-between;align-items:center;gap:1rem}
 .filters{display:flex;gap:.5rem;align-items:center}
-.filters input{padding:.5rem;border-radius:8px;border:1px solid #e6e6e6}
-.filters select{padding:.45rem;border-radius:8px;border:1px solid #e6e6e6}
+.filter-group{display:flex;gap:.25rem;align-items:center}
+.filter-label{background:#fff;padding:.35rem .6rem;border-radius:8px;border:1px solid #eee;cursor:pointer}
+.filter-label input{display:none}
+
+/* GRID */
 .menu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
 .card{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
 .card img{width:100%;height:140px;object-fit:cover;border-radius:8px}
+.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:.5rem}
+.btn-order{padding:.35rem .6rem;border-radius:8px;background:#eee;text-decoration:none;color:#111}
+
+/* ocultar/mostrar según filtro (radio inputs) */
+/* Por defecto: mostrar todos */
+.item{display:block}
+
+/* cuando "Clásica" está seleccionada, mostrar solo .clasica */
+#f-clasica:checked ~ .menu-section #menuGrid .item { display:none; }
+#f-clasica:checked ~ .menu-section #menuGrid .clasica { display:block; }
+
+/* cuando "Veggie" está seleccionada, mostrar solo .veggie */
+#f-veggie:checked ~ .menu-section #menuGrid .item { display:none; }
+#f-veggie:checked ~ .menu-section #menuGrid .veggie { display:block; }
+
+/* cuando "Acompañamiento" está seleccionada, mostrar solo .acompanamiento */
+#f-acom:checked ~ .menu-section #menuGrid .item { display:none; }
+#f-acom:checked ~ .menu-section #menuGrid .acompanamiento { display:block; }
+
+/* cuando "Todas" seleccionada (f-all) mostrar todos */
+#f-all:checked ~ .menu-section #menuGrid .item { display:block; }
+
+/* estilos diversos */
+.muted{color:var(--muted)}
+.contact-form{display:grid;gap:.5rem;max-width:520px}
+.contact-form input,.contact-form textarea{padding:.5rem;border-radius:8px;border:1px solid #e6e6e6}
 .btn-submit{background:var(--accent);color:#fff;padding:.6rem;border-radius:10px;border:0}
 footer{margin-top:1.5rem;padding:1rem;border-top:1px solid rgba(0,0,0,.06);text-align:center;color:var(--muted)}
 
