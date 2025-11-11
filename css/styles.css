@@ -8,6 +8,31 @@ body{margin:0;background:linear-gradient(180deg,#fff8f0 0%, #ffeede 100%);color:
 .site-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem;gap:1rem}
 .brand{display:flex;align-items:center;gap:.75rem}
 .logo{width:48px;height:48px;background:var(--card);border-radius:10px;display:grid;place-items:center;box-shadow:0 4px 14px rgba(0,0,0,.08)}
+/* Logo como imagen (encaja con el diseño existente) */
+.logo-img{
+  width:48px;            /* tamaño inicial; ajusta si lo deseas */
+  height:48px;
+  object-fit:cover;
+  border-radius:10px;    /* mantiene el estilo redondeado */
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
+  margin-right:.75rem;
+  display:block;
+}
+
+/* Si quieres que el logo sea un poco más grande en pantallas grandes */
+@media (min-width:1200px){
+  .logo-img{ width:56px; height:56px; }
+}
+
+/* Ajustes móviles: ocultar texto si el header está muy apretado */
+@media (max-width:520px){
+  .site-title{ font-size:.95rem; }
+  .site-tag{ display:none; } /* opcional: oculta el subtítulo en pantallas muy pequeñas */
+  .logo-img{ width:44px; height:44px; }
+  .main-nav a{ display:none; } /* mantiene tu comportamiento responsive */
+  .mobile-toggle{ display:block; }
+}
+
 .site-title{font-size:1.125rem;margin:0}
 .site-tag{font-size:.85rem;color:var(--muted)}
 .main-nav{display:flex;gap:1rem;align-items:center}
