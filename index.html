@@ -8,22 +8,26 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
- <header class="site-header">
+<header class="site-header">
   <div class="brand">
-    <img src="images/logo.png" alt="Big Diddy Burger logo" class="logo-img">
+    <!-- logo: usa una img en lugar del SVG -->
+    <img src="images/logo.png" alt="Big Diddy Burger" class="logo-img">
+
     <div>
       <h1 class="site-title">Big Diddy Burger</h1>
       <div class="site-tag">Hamburguesas artesanales & papas crujientes</div>
     </div>
   </div>
 
-  <nav class="main-nav">
+  <nav class="main-nav" aria-label="Principal">
     <a href="#menu">Menú</a>
     <a href="#about">Nosotros</a>
     <a href="#contact">Contacto</a>
     <a class="cta" href="#order">Ordenar</a>
+    <button class="mobile-toggle" aria-expanded="false" aria-controls="mobileMenu">☰</button>
   </nav>
 </header>
+
 
 
   <main class="container">
