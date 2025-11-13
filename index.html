@@ -3,17 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Big Diddy Burger</title>
-  <meta name="description" content="Big Diddy Burger — hamburguesas artesanales, rápidas y sabrosas." />
+  <title>Big Burger</title>
+  <meta name="description" content="Big Burger — hamburguesas artesanales, rápidas y sabrosas." />
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="brand">
-      <!-- logo -->
-      <img src="images/logo.png" alt="Big Diddy Burger logo" class="logo-img">
+  <!-- logo -->
+  <img src="images/logo.png" alt="Big Burger logo" class="logo-img">
       <div>
-        <h1 class="site-title">Big Diddy Burger</h1>
+  <h1 class="site-title">Big Burger</h1>
         <div class="site-tag">Hamburguesas artesanales & papas crujientes</div>
       </div>
     </div>
@@ -71,8 +71,8 @@
       <div id="menuGrid" class="menu-grid" aria-live="polite">
         <!-- Tarjetas de productos -->
         <article class="card item clasica">
-          <h5>Big Diddy Burger</h5>
-          <h4>Big Diddy</h4>
+          <h5>Big Burger</h5>
+            <h4>Big</h4>
           <p>Carne doble, queso cheddar, bacon crujiente y salsa especial.</p>
           <div class="card-foot">
             <strong>$9.99</strong>
@@ -91,8 +91,8 @@
         </article>
 
         <article class="card item acompanamiento">
-          <h5>Papas Diddy</h5>
-          <h4>Papas Diddy</h4>
+          <h5>Papas</h5>
+            <h4>Papas</h4>
           <p>Papas rústicas sazonadas con nuestra mezcla especial.</p>
           <div class="card-foot">
             <strong>$3.99</strong>
@@ -103,8 +103,8 @@
     </section>
 
     <section id="about">
-      <h2>Sobre nosotros</h2>
-      <p>Big Diddy Burger nació de la pasión por crear hamburguesas con ingredientes locales y técnicas tradicionales.</p>
+  <h2>Sobre nosotros</h2>
+  <p>Big Burger nació de la pasión por crear hamburguesas con ingredientes locales y técnicas tradicionales.</p>
     </section>
 
     <section id="contact">
@@ -125,7 +125,53 @@
   </main>
 
   <footer>
-    © 2025 Big Diddy Burger — Hecho con sabor.
+  © 2025 Big Burger — Hecho con sabor.
   </footer>
+  <!-- Script para filtros del menú: escucha los radios con name="filtro" y muestra/oculta
+       las tarjetas en #menuGrid según la clase de categoría (clasica, veggie, acompanamiento).
+       Para agregar más categorías: añadir input radio con id f-<clave> y asignar a las
+       tarjetas la clase <clave> (ej: clase "veg" -> clase en article "veg"). -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const inputs = document.querySelectorAll('input[name="filtro"]');
+      const items = document.querySelectorAll('#menuGrid .item');
+
+      function applyFilter(value) {
+        // mapear valor de radio a la clase usada en los artículos
+        const mapVal = value === 'all' ? 'all' : (value === 'acom' ? 'acompanamiento' : value);
+
+        items.forEach(item => {
+          if (mapVal === 'all') {
+            item.style.display = '';
+          } else {
+            if (item.classList.contains(mapVal)) {
+              item.style.display = '';
+            } else {
+              item.style.display = 'none';
+            }
+          }
+        });
+
+        // actualizar estado visual de los labels
+        document.querySelectorAll('.filter-label').forEach(l => l.classList.remove('active'));
+        const checked = document.querySelector('input[name="filtro"]:checked');
+        if (checked) {
+          const lab = checked.closest('label');
+          if (lab) lab.classList.add('active');
+        }
+      }
+
+      inputs.forEach(input => {
+        input.addEventListener('change', function () {
+          const val = this.id.replace('f-', '');
+          applyFilter(val);
+        });
+      });
+
+      // Aplicar filtro inicial (estado del radio marcado por defecto)
+      const init = document.querySelector('input[name="filtro"]:checked');
+      if (init) applyFilter(init.id.replace('f-', ''));
+    });
+  </script>
 </body>
 </html>
